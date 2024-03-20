@@ -8,29 +8,26 @@ import lombok.Data;
 @Data
 @Schema(
         name = "Accounts",
-        description = "Schema to hold Acocunt Information"
+        description = "Schema to hold Account information"
 )
 public class AccountsDto {
 
+    @NotEmpty(message = "AccountNumber can not be a null or empty")
+    @Pattern(regexp="(^$|[0-9]{10})",message = "AccountNumber must be 10 digits")
     @Schema(
-            description = "Account Number  of the customer",
-            example = "1234567890"
+            description = "Account Number of Eazy Bank account", example = "3454433243"
     )
-    @Pattern(regexp = "(^$|[0-9]{10})", message = "Account number must be 10 digits")
-    @NotEmpty(message = "Account number cannot be empty or Null")
     private Long accountNumber;
 
+    @NotEmpty(message = "AccountType can not be a null or empty")
     @Schema(
-            description = "Account type of the customer",
-            example = "Savings"
+            description = "Account type of Eazy Bank account", example = "Savings"
     )
-    @NotEmpty(message = "Account Type cannot be empty or Null")
     private String accountType;
 
+    @NotEmpty(message = "BranchAddress can not be a null or empty")
     @Schema(
-            description = "Branch Address of the customer",
-            example = "123, New York"
+            description = "Eazy Bank branch address", example = "123 NewYork"
     )
-    @NotEmpty(message = "Branch Address cannot be empty or Null")
     private String branchAddress;
 }

@@ -57,6 +57,10 @@
             <version>2.3.0</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -78,10 +82,13 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.4.1</version>
                 <configuration>
+                    <from>
+                        <image>eclipse-temurin:21-jre-ubi9-minimal</image>
+                    </from>
                     <to>
-                        <image>raviede/${project.artifactId}:v1</image>
+                        <image>raviede/${project.artifactId}:v2</image>
                     </to>
                 </configuration>
             </plugin>

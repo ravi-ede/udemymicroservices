@@ -16,7 +16,18 @@ spring:
     show-sql: true
   application:
     name: "loans"
-  config:
-    import: "configserver:http://localhost:8071/"
+  #  config:
+  #    import: "configserver:http://localhost:8071/"
   profiles:
     active: "prod"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
